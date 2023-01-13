@@ -1,0 +1,47 @@
+<html>
+    <head>
+        <title>Testing vuejs in single html file </title>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vue/0.12.7/vue.min.js"></script>
+        <script>
+            window.onload = function(){
+                new Vue({
+                    el: 'body',
+                    data: {
+                        hasStyle: true,
+                        message: ''
+                    },
+                    created() {
+                        this.message = 'Hello world';
+                    },
+                    methods: {
+                        changeText() {
+                            this.message = 'This text has been changed'
+                        }
+                    }
+                });
+            }
+        </script>
+        <style>
+            .my-style {
+                margin-top: 25px;
+            }
+
+            .my-style button {
+                margin-right: 10px;
+            }
+        </style>
+    </head>
+    <body>
+        <div> {{ message }} </div>
+        <hr>
+        <h3>Test reactive property</h3>
+        <div >
+            <input type="text" v-model="message">
+        </div>
+        <hr>
+        <div v-class="my-style: hasStyle">
+            <button v-on="click: changeText">Change Text</button>
+            <a href="https://www.lamadly.com/articles/how-to-run-vuejs-in-a-simple-html-file" target="_blank">Click out</a>
+        </div>
+    </body>
+</html>
